@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import LoadingBox from '../components/LoadingBox';
 import ErrorBox from '../components/ErrorBox';
-import { detailsProduct, saveProductReview } from '../actions/productActions';
+import { detailsProduct, saveProductReview, listProductCategories } from '../actions/productActions';
 import Rating from '../components/Rating';
 import { PRODUCT_REVIEW_SAVE_RESET } from '../constants/productConstants';
 
@@ -45,13 +45,113 @@ function ProductScreen(props) {
   };
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
+  /////////////////////////////////
+
+  const productCategoryList = useSelector((state) => state.productCategoryList);
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+ 
+  
+  const { categories, loading: loadingCat, error: errorCat } = productCategoryList;
+  
+  useEffect(() => {
+    dispatch(listProductCategories());
+    return () => {
+      //
+    };
+  }, []);
+  const openSidebar = () =>
+    document.querySelector('.sidebar-homescreen').classList.add('open');
+  const closeSidebar = () =>
+    document.querySelector('.sidebar-homescreen').classList.remove('open');
 
   return loading ? (
     <LoadingBox />
   ) : error ? (
     <ErrorBox message={error} />
   ) : (
-    <div>
+    <>
+      <header className="header">
+          <div className="brand">
+            <button type="button" onClick={openSidebar}>
+              &#9776;
+            </button>
+            <Link to="/">ZMPD</Link>
+          </div>
+          <div className="header-links">
+            {cartItems.length !== 0 && (
+              <div className="badge">{cartItems.length}</div>
+            )}
+            <Link className="header-link" to="/cart">
+              Cart
+            </Link>
+
+            {userInfo ? (
+              <>
+                <Link className="header-link" to="/profile">
+                  {userInfo.name}
+                </Link>
+                {userInfo.isAdmin && (
+                  <div className="dropdown">
+                    <Link className="header-link" to="#admin">
+                      Admin
+                    </Link>
+                    <ul className="dropdown-content">
+                      <li>
+                        <Link className="header-link" to="/products">
+                          Products
+                        </Link>
+                      </li>
+                      <li>
+                        <Link className="header-link" to="/orders">
+                          Orders
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </>
+            ) : (
+              <Link className="header-link" to="/signin">
+                {' '}
+                Sign in
+              </Link>
+            )}
+          </div>
+        </header>
+        <aside className="sidebar-homescreen">
+          <ul className="categories">
+            <li>
+              <h3>Shopping Categories</h3>
+              <button
+                type="button"
+                className="sidebar-homescreen-menu-close"
+                onClick={closeSidebar}
+              >
+                x
+              </button>
+            </li>
+            {loadingCat ? (
+              <li>
+                <LoadingBox />
+              </li>
+            ) : errorCat ? (
+              <li>
+                <ErrorBox message={errorCat} />
+              </li>
+            ) : categories.length === 0 ? (
+              <li className="empty-list">There is no categories.</li>
+            ) : (
+              categories.map((x) => (
+                <li key={x}>
+                  <Link onClick={closeSidebar} to={`/category/${x}`}>
+                    {x}
+                  </Link>
+                </li>
+              ))
+            )}
+          </ul>
+        </aside>
       <div className="back-to-results">
         <Link to="/"> ‹ Back to results</Link>
       </div>
@@ -179,7 +279,7 @@ function ProductScreen(props) {
           </li>
         </ul>
       </div>
-    </div>
+    </>
   );
 }
 export default ProductScreen;

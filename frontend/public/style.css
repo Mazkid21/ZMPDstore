@@ -1,0 +1,1130 @@
+* {
+    font-family: courier;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100%;
+}
+
+/* Layout */
+.grid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 600px) {
+    .grid {
+        flex-direction: column;
+
+    }
+}
+
+.grid .column {
+    position: relative;
+    overflow: hidden;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .grid .column {
+        width: 100%;
+        height: 50%;
+
+    }
+}
+
+.grid .column img {
+    position: relative;
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    opacity: 0.8;
+}
+
+.grid .column .content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 2em;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    .grid .column .content {
+
+        padding: 0;
+        overflow: hidden;
+
+    }
+}
+
+
+
+.grid .column .content::before,
+.grid .column .content::after {
+    pointer-events: none;
+}
+
+.grid .column h2 {
+    word-spacing: -0.15rem;
+    font-weight: 300;
+}
+
+.grid .column h2 span {
+    display: block;
+    font-weight: 800;
+    font-size: 2.8rem;
+}
+
+.grid .column h2,
+.grid .column p {
+    margin: 0;
+}
+
+.grid .column p {
+    letter-spacing: 1px;
+    font-size: 68.5%;
+}
+
+/* Layout */
+#root {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* @media only screen and (max-width: 600px) {
+    #root {
+        flex-direction: column;
+
+    }
+} */
+
+#root .column {
+    position: relative;
+    overflow: hidden;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+   #root .grid .column {
+        width: 100%;
+        height: 50%;
+
+    }
+}
+
+#root .column img {
+    position: relative;
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    opacity: 0.8;
+}
+
+#root .column .content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 2em;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    .grid .column .content {
+
+        padding: 0;
+        overflow: hidden;
+
+    }
+}
+
+
+
+#root .column .content::before,
+#root .column .content::after {
+    pointer-events: none;
+}
+
+#root .column h2 {
+    word-spacing: -0.15rem;
+    font-weight: 300;
+}
+
+#root .column h2 span {
+    display: block;
+    font-weight: 800;
+    font-size: 2.8rem;
+}
+
+#root .column h2,
+#root .column p {
+    margin: 0;
+}
+
+#root .column p {
+    letter-spacing: 1px;
+    font-size: 68.5%;
+}
+
+#logo {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    -webkit-transform: translateY(-10%);
+    -ms-transform: translateY(-10%);
+    transform: translateY(-10%);
+}
+
+@media only screen and (max-width: 600px) {
+    #logo {
+        top: 2%;
+
+    }
+
+
+}
+
+#logo img {
+    max-width: 100px;
+    height: auto;
+
+}
+
+hr {
+    height: 1px;
+    background: black;
+    border: none;
+    outline: none;
+    margin: 3em 3em 5em;
+    position: relative;
+}
+
+hr:before {
+    content: attr(data-symbol);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    background: white;
+    color: black;
+    padding: 0.5em 1em;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+hr#one {
+    width: 50%;
+    margin: 2em auto;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    #logo img {
+        max-width: 65px;
+        height: auto;
+
+    }
+}
+
+a {
+    text-transform: uppercase;
+    font-size: .6rem;
+    text-decoration: none;
+    color: #FFF;
+    display: block;
+    font-family: sans-serif;
+}
+
+#photo {
+    background: url("images/photoHero.jpg") no-repeat top center;
+    background-size: cover;
+}
+
+#dev {
+    background: url("images/codeHero.jpg") no-repeat center top;
+    background-size: cover;
+}
+
+#photo .content {
+    background: rgba(255, 255, 255, 0.23);
+    color: black;
+}
+
+#dev .content {
+    background: rgba(0, 0, 0, 0.56);
+
+}
+
+
+/*-----------------*/
+/***** Hover *****/
+/*-----------------*/
+.effect-hover h2,
+.effect-hover h3,
+.effect-hover p,
+.effect-hover i {
+    -webkit-transition: opacity 0.35s,
+        -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+}
+
+.effect-hover .content::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    border: 3px solid #fff;
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    /* remove this bit if you want it to swing up */
+    /* -webkit-transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -45deg) scale3d(0, 0, 1);
+    transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -45deg) scale3d(0, 0, 1); */
+}
+
+@media only screen and (max-width: 600px) {
+    .effect-hover .content::before {
+        border: 0px;
+    }
+}
+
+.effect-hover .content.photo::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    border: 3px solid #0f0f0f !important;
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    /* remove this bit if you want it to swing up */
+    /* -webkit-transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -45deg) scale3d(0, 0, 1);
+    transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -45deg) scale3d(0, 0, 1); */
+}
+
+@media only screen and (max-width: 600px) {
+    .effect-hover .content.photo::before {
+        border: 0px !important;
+    }
+}
+
+.effect-hover p:hover,
+.effect-hover p:focus {
+    opacity: 0.6;
+}
+
+/* Keeps things consistent */
+
+
+.effect-hover p,
+.effect-hover h3 {
+    opacity: 0;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .effect-hover p,
+    .effect-hover h3 {
+        opacity: 1;
+    }
+}
+
+
+.effect-hover:hover .content::before {
+    opacity: 1;
+    -webkit-transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -45deg) scale3d(1, 1, 1);
+    transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -45deg) scale3d(1, 1, 1);
+}
+
+.effect-hover:hover h2 {
+    opacity: 1;
+    -webkit-transform: scale3d(0.8, 0.8, 1);
+    transform: scale3d(0.8, 0.8, 1);
+}
+
+.effect-hover:hover h3,
+.effect-hover:hover p {
+    opacity: 1;
+}
+
+.effect-hover:hover i {
+    -webkit-transform: scale3d(2.5, 2.5, 2);
+    transform: scale3d(2.5, 2.5, 2);
+}
+
+/* Overlays */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+    z-index: 99;
+    overflow-x: hidden;
+    background: #eee;
+}
+
+/* Block works too, but flex is more...flexible */
+.overlay.open {
+    display: flex;
+}
+
+.overlay .column {
+    display: table;
+    height: 100%;
+}
+
+.product-content {
+    font-size: 1.4rem;
+    padding: 10%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+
+/* Close Icon animated */
+/* Thanks to @arthurhamon */
+.close-icon {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    margin: auto;
+    padding-top: 15px;
+
+
+}
+
+@media only screen and (max-width: 600px) {
+    .close-icon {
+
+        top: 1%;
+        right: 90%;
+        position: fixed;
+        padding-top: 5px;
+
+
+    }
+}
+
+
+/* Test your cubic beziers here http://cubic-bezier.com/ */
+.close-icon div {
+    display: block;
+    height: 3px;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s, opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+    width: 36px;
+
+}
+
+.close-icon div:first-child {
+    transform: translate3d(0px, 10px, 0px) rotate3d(0, 0, 1, -45deg);
+}
+
+.close-icon div:first-child::after,
+.close-icon div:first-child::before {
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s, opacity 0.2s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+}
+
+.close-icon div:last-child {
+    transform: translate3d(0px, 8px, 0px) rotate3d(0, 0, 1, 45deg);
+}
+
+.close-icon div:last-child::after,
+.close-icon div:last-child::before {
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s, opacity 0.2s cubic-bezier(0.19, 1, 0.22, 1) 0.18s;
+}
+
+.close-icon div::after,
+.close-icon div::before {
+    content: "";
+    display: block;
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+}
+
+/* Now you see it */
+.close-icon div::before {
+    background: none repeat scroll 0 0 #ffffff;
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+@media only screen and (max-width: 600px) {
+    .close-icon div::before {
+        background: none repeat scroll 0 0 white;
+    }
+}
+
+/* Now you don't */
+.close-icon div::after {
+    background: none repeat scroll 0 0 #f60808;
+    opacity: 0;
+    transform: translate3d(100%, 0px, 0px);
+}
+
+@media only screen and (max-width: 600px) {
+    .close-icon div::after {
+        background: none repeat scroll 0 0 #0f0f0f;
+    }
+}
+
+.close-icon:hover div::before {
+    opacity: 0;
+    transform: translate3d(-100%, 0px, 0px);
+}
+
+.close-icon:hover div::after {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+
+
+
+
+#portfolio {
+    width: 100%;
+    margin: 20px 0px;
+}
+
+.tile {
+    float: left;
+    min-height: 100px;
+    max-height: 150px;
+    width: 20%;
+    border: 1px #fff solid;
+}
+
+.tile:hover {
+    opacity: 0.5;
+}
+
+
+.web {
+    background: #00C5CD;
+}
+
+.flyers {
+    background: #CC3232;
+}
+
+.bcards {
+    background: #ddd;
+}
+
+
+/* Photo Nav bar  */
+
+
+.wrapper {
+    width: 100vw;
+    color: #333;
+    background: #333;
+    display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .photo-vcard-list {
+
+        font-size: 12px;
+
+    }
+}
+
+.sidebar {
+    flex-basis: 20%;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .sidebar {
+        flex-basis: 0%;
+        position: sticky;
+    }
+}
+
+.content {
+    flex: 1;
+    padding: 0px 30px 30px 30px;
+    background: #eee;
+    box-shadow: 0 0 5px black;
+    transform: translate3d(0, 0, 0);
+    transition: all .3s;
+    overflow: auto;
+}
+
+#photoAbout {
+    padding-top: 0px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.photo-vcard {
+    align-self: center;
+}
+
+.photo-vcard-pic {
+    align-self: center;
+}
+
+.photo-vcard-pic img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 5px 2px 8px 0px rgba(0, 0, 0, 0.31);
+
+}
+
+.photo-vcard-list {
+
+
+    list-style: none;
+    padding-left: 0px;
+
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.29);
+}
+
+
+.photo-vcard-list i {
+
+    margin-right: 10px;
+
+}
+
+#photoPortfolio {}
+
+.portfolioImgs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.grouped_elements img {
+    max-width: 20rem;
+    height: auto;
+    /* max-height: 15rem; */
+    padding: 5px;
+}
+
+
+
+.title {
+    font-size: 19px;
+    line-height: 287px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    color: #eee;
+    border-bottom: 1px solid #222;
+    background: #2a2a2a;
+    background: url(images/logoBlack.png) no-repeat center top;
+    background-size: contain;
+    height: 10rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .title {
+        font-size: 15px;
+        height: 3rem;
+        line-height: 50px;
+        text-align: center;
+        background: url(images/logoBlack.png) no-repeat center top;
+        background-size: contain;
+        padding-left: 50px;
+    }
+}
+
+
+
+.nav {
+    padding-left: 0px;
+    text-align: center;
+    margin: 0px;
+}
+
+.nav li a {
+    padding: 15px 0px;
+    padding-bottom: 15px;
+    font-size: 12px;
+    border-bottom: 1px solid #222;
+}
+
+.icon {
+    display: none !important;
+}
+
+@media screen and (max-width: 600px) {
+    .nav-li {
+        display: none;
+    }
+
+
+
+    .icon {
+        color: white;
+        float: right;
+        display: inline-block !important;
+        padding-top: 5px;
+        font-size: 37px;
+    }
+}
+
+.navResponsive {
+    display: list-item;
+
+}
+
+.nav li a:hover {
+    background: #444;
+}
+
+.nav li a.active {
+    box-shadow: inset 5px 0 0 #5b5, inset 6px 0 0 #222;
+    background: #444;
+}
+
+
+/* Lightbox */
+
+
+.text-center {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.lightbox-gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.lightbox-gallery div>img {
+    max-width: 100%;
+    display: block;
+}
+
+.lightbox-gallery div {
+    margin: 10px;
+    flex-basis: 180px;
+}
+
+@media only screen and (max-width: 480px) {
+    .lightbox-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lightbox>div {
+        margin-bottom: 10px;
+    }
+}
+
+/*Lighbox CSS*/
+
+.lightbox {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+
+.lightbox img {
+    display: block;
+    margin: auto;
+}
+
+.lightbox .caption {
+    margin: 15px auto;
+    width: 50%;
+    text-align: center;
+    font-size: 1em;
+    line-height: 1.5;
+    font-weight: 700;
+    color: #eee;
+}
+
+
+.card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 1px 2px #888;
+    margin: 2em 3em
+}
+
+.card p {
+    margin: 1em;
+}
+
+.card h1 {
+    margin-top: 0px;
+    width: 100%;
+    line-height: 30px;
+    background: #2d303a;
+    color: #ffffff;
+    text-align: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+        margin: 1em auto;
+    }
+
+}
+
+@media only screen and (max-width: 361px) {
+    .grouped_elements img {
+        max-width: 15rem;
+    }
+}
+
+
+
+
+#contact-area form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact-area input,
+#contact-area textarea {
+    padding: 5px;
+    width: 80%;
+
+    font-size: 14px;
+    font-weight: 300;
+    color: black;
+    background-color: transparent;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid black;
+    border-right: 1px solid transparent;
+
+    margin-bottom: 15px;
+}
+
+#contact-area textarea {
+    height: 10em;
+    max-width: 80%;
+    min-width: 80%;
+    background-color: transparent;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid #333;
+    border-right: 1px solid transparent;
+
+}
+
+#contact-area textarea:focus,
+#contact-area input:focus {
+    color: #FFF;
+    background-color: #333333cf;
+    ;
+    outline: none;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid transparent;
+
+}
+
+#contact-area input.submit-button {
+
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: uppercase;
+    width: 100px;
+    float: left;
+    background-color: transparent;
+    border-top: 1px solid #333;
+    border-left: 1px solid #333;
+    border-bottom: 1px solid #333;
+    border-right: 1px solid #333;
+
+    -moz-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+#contact-area input.submit-button:hover {
+
+    color: #fff;
+    background-color: #333;
+
+
+}
+
+label {
+    float: left;
+    text-align: left;
+    margin-right: 16px;
+    width: 100px;
+    padding-top: 5px;
+    font-family: 'Lato', calibri, arial;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+
+
+::-webkit-input-placeholder {
+    color: black;
+    font-family: courier;
+    font-size: 14px;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: black;
+    font-family: courier;
+    font-size: 14px;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: black;
+    font-family: courier;
+    font-size: 14px;
+}
+
+:-ms-input-placeholder {
+    color: black;
+    font-family: courier;
+    font-size: 14px;
+}
+
+
+.module-card-wrap {
+    max-width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.module-card {
+    background: #fff;
+    border: 1px solid #f1f1f1;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+    min-width: 100%;
+    padding: 10px;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.module-card-title {
+    font-size: 120%;
+    font-weight: 700;
+}
+
+.module-card-meta {
+    display: flex;
+}
+
+.module-card-category,
+.module-card-author {
+    flex: 1;
+}
+
+.module-card-author {
+    text-align: right;
+}
+
+.module-card-bottom {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* a flex: 1 also works here, but is buggy on IE11 */
+}
+
+.module-card-img {
+    margin: 20px 0;
+    align-self: center;
+    width: 100%;
+    height: auto;
+}
+
+.module-card-button {
+    background: seagreen;
+    color: white;
+    border: none;
+    margin-top: auto;
+    padding: 10px;
+}
+
+
+
+.wrapper button {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.loader {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    transition: width 0s 1.4s ease;
+}
+
+.loader .loader__icon {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+.loader .loader__icon svg {
+    transform-origin: 0 0;
+}
+
+.loader .loader__tile {
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 20%;
+    background-color: #007AE5;
+    transition: width .7s ease;
+}
+
+.loader .loader__tile:nth-child(0) {
+    top: calc(-1 * 20%);
+    transition-delay: -0.2s;
+}
+
+.loader .loader__tile:nth-child(1) {
+    top: calc(0 * 20%);
+    transition-delay: 0s;
+}
+
+.loader .loader__tile:nth-child(2) {
+    top: calc(1 * 20%);
+    transition-delay: 0.2s;
+}
+
+.loader .loader__tile:nth-child(3) {
+    top: calc(2 * 20%);
+    transition-delay: 0.4s;
+}
+
+.loader .loader__tile:nth-child(4) {
+    top: calc(3 * 20%);
+    transition-delay: 0.6s;
+}
+
+.loader .loader__tile:nth-child(5) {
+    top: calc(4 * 20%);
+    transition-delay: 0.8s;
+}
+
+.loader--active {
+    width: 100%;
+    transition-delay: 0s;
+}
+
+.loader--active .loader__icon {
+    opacity: 1;
+    transition: opacity .5s 1.4s ease;
+}
+
+.loader--active .loader__tile {
+    width: 100%;
+}
+
+.loader--active .loader__tile:nth-child(0) {
+    transition-delay: -0.2s;
+}
+
+.loader--active .loader__tile:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.loader--active .loader__tile:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.loader--active .loader__tile:nth-child(3) {
+    transition-delay: 0.4s;
+}
+
+.loader--active .loader__tile:nth-child(4) {
+    transition-delay: 0.6s;
+}
+
+.loader--active .loader__tile:nth-child(5) {
+    transition-delay: 0.8s;
+}

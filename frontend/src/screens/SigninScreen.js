@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom';
 import { signin } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import ErrorBox from '../components/ErrorBox';
+import { listProductCategories } from '../actions/productActions';
 
 function SigninScreen(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispath(signin(email, password));
+    dispatch(signin(email, password));
   };
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo, loading, error } = userSignin;
@@ -25,7 +26,107 @@ function SigninScreen(props) {
     };
   }, [userInfo]);
 
+  const productCategoryList = useSelector((state) => state.productCategoryList);
+
+const cart = useSelector((state) => state.cart);
+const { cartItems } = cart;
+const { categories, loading: loadingCat, error: errorCat } = productCategoryList;
+
+useEffect(() => {
+  dispatch(listProductCategories());
+  return () => {
+    //
+  };
+}, []);
+const openSidebar = () =>
+  document.querySelector('.sidebar-homescreen').classList.add('open');
+const closeSidebar = () =>
+  document.querySelector('.sidebar-homescreen').classList.remove('open');
+
+
   return (
+    <div className="cart-container">
+    <header className="header">
+          <div className="brand">
+            <button type="button" onClick={openSidebar}>
+              &#9776;
+            </button>
+            <Link to="/">ZMPD</Link>
+          </div>
+          <div className="header-links">
+            {cartItems.length !== 0 && (
+              <div className="badge">{cartItems.length}</div>
+            )}
+            <Link className="header-link" to="/cart">
+              Cart
+            </Link>
+
+            {userInfo ? (
+              <>
+                <Link className="header-link" to="/profile">
+                  {userInfo.name}
+                </Link>
+                {userInfo.isAdmin && (
+                  <div className="dropdown">
+                    <Link className="header-link" to="#admin">
+                      Admin
+                    </Link>
+                    <ul className="dropdown-content">
+                      <li>
+                        <Link className="header-link" to="/products">
+                          Products
+                        </Link>
+                      </li>
+                      <li>
+                        <Link className="header-link" to="/orders">
+                          Orders
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </>
+            ) : (
+              <Link className="header-link" to="/signin">
+                {' '}
+                Sign in
+              </Link>
+            )}
+          </div>
+        </header>
+        <aside className="sidebar-homescreen">
+          <ul className="categories">
+            <li>
+              <h3>Shopping Categories</h3>
+              <button
+                type="button"
+                className="sidebar-homescreen-menu-close"
+                onClick={closeSidebar}
+              >
+                x
+              </button>
+            </li>
+            {loadingCat ? (
+              <li>
+                <LoadingBox />
+              </li>
+            ) : errorCat ? (
+              <li>
+                <ErrorBox message={errorCat} />
+              </li>
+            ) : categories.length === 0 ? (
+              <li className="empty-list">There is no categories.</li>
+            ) : (
+              categories.map((x) => (
+                <li key={x}>
+                  <Link onClick={closeSidebar} to={`/category/${x}`}>
+                    {x}
+                  </Link>
+                </li>
+              ))
+            )}
+          </ul>
+        </aside>
     <div className="form">
       <form onSubmit={handleSubmit}>
         <ul className="form-container">
@@ -79,6 +180,7 @@ function SigninScreen(props) {
           </li>
         </ul>
       </form>
+    </div>
     </div>
   );
 }

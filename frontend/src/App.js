@@ -17,6 +17,8 @@ import ErrorBox from './components/ErrorBox';
 import AdminProductsScreen from './screens/ProductsScreen';
 import AdminOrdersScreen from './screens/OrdersScreen';
 import PrivateRoute from './components/PrivateRoute';
+import LandingScreen from './screens/LandingScreen';
+
 
 function App() {
   const productCategoryList = useSelector((state) => state.productCategoryList);
@@ -39,89 +41,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="grid-container">
-        <header className="header">
-          <div className="brand">
-            <button type="button" onClick={openSidebar}>
-              &#9776;
-            </button>
-            <Link to="/">ZMPD</Link>
-          </div>
-          <div>
-            {cartItems.length !== 0 && (
-              <div className="badge">{cartItems.length}</div>
-            )}
-            <Link className="header-link" to="/cart">
-              Cart
-            </Link>
-
-            {userInfo ? (
-              <>
-                <Link className="header-link" to="/profile">
-                  {userInfo.name}
-                </Link>
-                {userInfo.isAdmin && (
-                  <div className="dropdown">
-                    <Link className="header-link" to="#admin">
-                      Admin
-                    </Link>
-                    <ul className="dropdown-content">
-                      <li>
-                        <Link className="header-link" to="/products">
-                          Products
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="header-link" to="/orders">
-                          Orders
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </>
-            ) : (
-              <Link className="header-link" to="/signin">
-                {' '}
-                Sign in
-              </Link>
-            )}
-          </div>
-        </header>
-        <aside className="sidebar">
-          <ul className="categories">
-            <li>
-              <h3>Shopping Categories</h3>
-              <button
-                type="button"
-                className="sidebar-menu-close"
-                onClick={closeSidebar}
-              >
-                x
-              </button>
-            </li>
-            {loading ? (
-              <li>
-                <LoadingBox />
-              </li>
-            ) : error ? (
-              <li>
-                <ErrorBox message={error} />
-              </li>
-            ) : categories.length === 0 ? (
-              <li className="empty-list">There is no categories.</li>
-            ) : (
-              categories.map((x) => (
-                <li key={x}>
-                  <Link onClick={closeSidebar} to={`/category/${x}`}>
-                    {x}
-                  </Link>
-                </li>
-              ))
-            )}
-          </ul>
-        </aside>
-        <main onClick={closeSidebar} className="main">
+    
           <PrivateRoute
             userInfo={userInfo}
             path="/shipping"
@@ -162,11 +82,9 @@ function App() {
             component={AdminOrdersScreen}
           />
           <Route path="/category/:id" component={HomeScreen} />
-          <Route path="/" exact component={HomeScreen} />
-        </main>
-        <footer className="footer">All rights reserved.</footer>
-      </div>
-    </BrowserRouter>
+          <Route path="/" exact component={LandingScreen} />
+          <Route path="/store" component={HomeScreen} />
+    </BrowserRouter> 
   );
 }
 
