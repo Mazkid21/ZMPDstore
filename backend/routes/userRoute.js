@@ -1,5 +1,6 @@
 import express from 'express';
 import asyncHandler from 'express-async-handler';
+import bcrypt from 'bcrypt';
 import User from '../models/userModel';
 import { isAuthenticated, getToken } from '../util';
 
@@ -32,6 +33,8 @@ router.put('/:id', isAuthenticated, asyncHandler(async (req, res) => {
 }));
 
 router.post('/register', asyncHandler(async (req, res) => {
+
+  req.body.password = bcrypt.hashSync(req.body.password, 10);
   const user = new User({
     name: req.body.name,
     email: req.body.email,
@@ -48,13 +51,13 @@ router.post('/register', asyncHandler(async (req, res) => {
 }));
 
 router.post('/signin', asyncHandler(async (req, res) => {
-  const signinUser = await User.findOne(
-    { email: req.body.email, password: req.body.password },
-  );
-  if (!signinUser) {
-    res.status(401).send({ message: 'Invalid email or password.' });
-    return;
-  }
+  const signinUser = await User.findOne({ email: req.body.email}); 
+    if (!signinUser) {
+    return res.status(400).send({ message: "The email does not exist" });
+}
+if(!bcrypt.compareSync(req.body.password, signinUser.password)) {
+    return response.status(400).send({ message: "The password is invalid" });
+}
   res.send({
     _id: signinUser._id,
     name: signinUser.name,

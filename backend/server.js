@@ -1,7 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-// import fileUpload from 'express-fileupload';
+import fileUpload from 'express-fileupload';
+import bcrypt from 'bcrypt';
 import path from 'path';
 import uploadRoute from './routes/uploadRoute';
 import userRoute from './routes/userRoute';
