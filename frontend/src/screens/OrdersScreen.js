@@ -173,7 +173,7 @@ const closeSidebar = () =>
                       {order._id}
                     </td>
                     <td>
-                      {/* {order.user.isAdmin.toString()}  */}
+                      {order.user.name} 
                     </td>
                     <td>
                       {order.createdAt}
