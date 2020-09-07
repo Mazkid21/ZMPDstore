@@ -80,9 +80,9 @@ function LandingScreen(props) {
               <li className="nav-li">
                 <a href="#photoPortfolio" className="">portfolio</a>
               </li>
-              <li className="nav-li">
+              {/* <li className="nav-li">
                 <a href="#photoStore" className="">Store</a>
-              </li>
+              </li> */}
               <li className="nav-li">
                 <a href="#photoContact" className="">Contact</a>
               </li>
@@ -316,7 +316,7 @@ function LandingScreen(props) {
               </div>
             </div>
 
-            <div id="photoStore">
+            {/* <div id="photoStore">
               <div className="card">
                 <h1>Store</h1>
 
@@ -335,7 +335,7 @@ function LandingScreen(props) {
                     )}
 
               </div>
-            </div>
+            </div> */}
 
             <div id="photoContact">
               <div className="card">
@@ -405,132 +405,88 @@ function LandingScreen(props) {
 
               <div className="card">
                 <h1>portfolio Section </h1>
-                <div className="module-card-wrap">
-                  <div className="module-card">
-                    <div className="module-card-title">Cheesecake</div>
-                    <div className="module-card-meta">
-                      <div className="module-card-category">
-                        <span className="fa fa-tag" />
-                        <span>Desserts</span>
-                      </div>
-                      <div className="module-card-author">
-                        <span className="fa fa-user" />
-                        <span>Jenn Davis</span>
-                      </div>
-                    </div>
 
-                    <div className="module-card-bottom">
-                      <img src="http://placehold.it/400x150" alt="cheesecake" className="module-card-img" />
+                <section className="gallery">
+                  <div className="row">
+                    <ul>
+                      <a href="#" className="close" />
+                      <li>
+                        <a href="#item01">
+                          <img src="images/WileyMaple.png" alt="" />
+                        </a>
+                      </li>
 
-                      <div>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ipsum sit
-                          perspiciatis iusto commodi nihil tenetur veritatis adipisci sed? Illo nobis
-                          similique in facilis libero ab officia ratione nesciunt fugiat.
-                        </p>
+                      <li>
+                        <a href="#item02">
+                          <img src="images/aspenDailyNews.png" alt="" />
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="#item03">
+                          <img src="images/BobbyMoyer.png" alt="" />
+                        </a>
+                      </li>
+                      <li>
+                        <a className="image" href="#item04">
+                          <img src="images/brit.png" alt="" />
+                        </a>
+                      </li>
+
+                    </ul>
+                  </div>
+
+                  <div id="item01" className="port">
+
+                    <div className="row">
+                    <img src="images/WileyMaple.png" alt="" />
+                      <div className="description">
+                        <h1>Wiley Maple</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
                       </div>
 
-                      <button className="module-card-button">See More</button>
+                     
                     </div>
                   </div>
 
-                  <div className="module-card">
-                    <div className="module-card-title">Cheesecake</div>
-                    <div className="module-card-meta">
-                      <div className="module-card-category">
-                        <span className="fa fa-tag" />
-                        <span>Desserts</span>
+                  <div id="item02" className="port">
+
+                    <div className="row">
+                      <div className="description">
+                        <h1>Aspen Daily News</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
                       </div>
-                      <div className="module-card-author">
-                        <span className="fa fa-user" />
-                        <span>Jenn Davis</span>
-                      </div>
+                      <img src="images/aspenDailyNews.png" alt="" />
                     </div>
 
-                    <div className="module-card-bottom">
-                      <img src="http://placehold.it/400x100" alt="cheesecake" className="module-card-img" />
-                      <button className="module-card-button">See More</button>
-                    </div>
                   </div>
 
-                  <div className="module-card">
-                    <div className="module-card-title">Cheesecake</div>
-                    <div className="module-card-meta">
-                      <div className="module-card-category">
-                        <span className="fa fa-tag" />
-                        <span>Desserts</span>
+                  <div id="item03" className="port">
+
+                    <div className="row">
+                      <div className="description">
+                        <h1>Bobby Moyer</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
                       </div>
-                      <div className="module-card-author">
-                        <span className="fa fa-user" />
-                        <span>Jenn Davis</span>
-                      </div>
+                      <img src="images/BobbyMoyer.png" alt="" />
                     </div>
 
-                    <div className="module-card-bottom">
-                      <img src="http://placehold.it/400x300" alt="cheesecake" className="module-card-img" />
-
-                      <div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                      </div>
-                      <button className="module-card-button">See More</button>
-                    </div>
                   </div>
 
-                  <div className="module-card">
-                    <div className="module-card-title">Cheesecake</div>
-                    <div className="module-card-meta">
-                      <div className="module-card-category">
-                        <span className="fa fa-tag" />
-                        <span>Desserts</span>
+                  <div id="item04" className="port">
+
+                    <div className="row">
+                      <div className="description">
+                        <h1>Real Estate Agent</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
                       </div>
-                      <div className="module-card-author">
-                        <span className="fa fa-user" />
-                        <span>Jenn Davis</span>
-                      </div>
+                      <img src="images/brit.png" alt="" />
                     </div>
 
-                    <div className="module-card-bottom">
-                      <img src="http://placehold.it/400x120" alt="cheesecake" className="module-card-img" />
-
-                      <div>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ipsum sit
-                          perspiciatis iusto commodi nihil tenetur veritatis adipisci sed? Illo nobis
-                          similique in facilis libero ab officia ratione nesciunt fugiat.
-                        </p>
-                      </div>
-                      <button className="module-card-button">See More</button>
-                    </div>
                   </div>
 
-                  <div className="module-card">
-                    <div className="module-card-title">Cheesecake</div>
-                    <div className="module-card-meta">
-                      <div className="module-card-category">
-                        <span className="fa fa-tag" />
-                        <span>Desserts</span>
-                      </div>
-                      <div className="module-card-author">
-                        <span className="fa fa-user" />
-                        <span>Jenn Davis</span>
-                      </div>
-                    </div>
+                </section>
 
-                    <div className="module-card-bottom">
-                      <img src="http://placehold.it/400x200" alt="cheesecake" className="module-card-img" />
-
-                      <div>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ipsum sit
-                          perspiciatis iusto commodi nihil tenetur veritatis adipisci sed? Illo nobis
-                          similique in facilis libero ab officia ratione nesciunt fugiat.
-                        </p>
-                      </div>
-
-                      <button className="module-card-button">See More</button>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
