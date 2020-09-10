@@ -105,6 +105,7 @@ $(document).ready(() => {
 
   // portfolio
   $('.gallery ul li a').click(function () {
+      console.log("hello");
     const itemID = $(this).attr('href');
     $('.gallery ul').addClass('item_open');
     $(itemID).addClass('item_open');

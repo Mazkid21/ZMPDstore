@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+import DevIcon from 'devicon-react-svg';
 import LoadingBox from '../components/LoadingBox';
 import ErrorBox from '../components/ErrorBox';
 import { listProducts } from '../actions/productActions';
@@ -32,7 +33,7 @@ function LandingScreen(props) {
   return (
     <>
       <div className="grid">
-        {/* <!--Left side--> */}
+        {/* <!-- Left side --> */}
         <div id="photo" className="column effect-hover">
           <div className="content photo">
             <i className="fa fa-camera" aria-hidden="true" />
@@ -64,6 +65,7 @@ function LandingScreen(props) {
 
       </div>
 
+      {/* <!--photo side content--> */}
       <div id="photo-overlay" className="overlay">
 
         <div className="wrapper">
@@ -74,87 +76,42 @@ function LandingScreen(props) {
               <i className="icon fa fa-bars" />
             </div>
             <ul className="nav">
+              {/* <!-- <li className="nav-li">
+                      <a href="#home" className="active">Intro</a>
+                  </li> --> */}
               <li className="nav-li">
-                <a href="#photoAbout" className="active">About</a>
+                <a href="#work" className="">Work</a>
               </li>
               <li className="nav-li">
-                <a href="#photoPortfolio" className="">portfolio</a>
+                <a href="#shop" className="">Shop</a>
               </li>
-              {/* <li className="nav-li">
-                <a href="#photoStore" className="">Store</a>
-              </li> */}
               <li className="nav-li">
-                <a href="#photoContact" className="">Contact</a>
+                <a href="#about" className="">About</a>
+              </li>
+              <li className="nav-li">
+                <a href="#location" className="">Contact</a>
+              </li>
+              <li className="nav-li">
+                <a href="#" className="close-icon">Home</a>
               </li>
             </ul>
-
-            <div className="close-icon">
-              <div />
-              <div />
-            </div>
 
           </div>
           <div className="content">
 
-            <div id="photoAbout">
-
-              <div className="card">
-                <h1>Zach Maraziti | Photographer </h1>
-                <div className="photo-vcard">
-                  <div className="photo-vcard-pic">
-                    <img
-                      src="https://scontent-den4-1.xx.fbcdn.net/v/t1.0-9/14191951_10208232425102981_7735399459185273756_n.jpg?_nc_cat=100&_nc_ht=scontent-den4-1.xx&oh=9b9adda2762d064a4330400d12717c4b&oe=5D2D6815"
-                      alt=""
-                    />
-                  </div>
-                  <ul className="photo-vcard-list">
-                    <li>
-                      <i className="fa fa-envelope" />
-                      ziti@zachmarazitiphotography.com
-                    </li>
-                    <li>
-                      <i className="fa fa-globe" />
-                      zmpd.com
-                    </li>
-                    <li>
-                      <i className="fa fa-phone" />
-                      (970)452-9404
-                    </li>
-                    <li>
-                      <i className="fa fa-map-marker-alt" />
-                      Aspen, CO
-                    </li>
-                  </ul>
-
+            <main>
+              <header className="section-1" id="home">
+                <div className="title-header">
+                  <h1>Zach Maraziti</h1>
+                  <h2>Photographer</h2>
                 </div>
 
-                <p>
-                  {' '}
-                  Born and raised in Aspen Colorado. I grew up skiing, playing
-                  hockey, baseball and running around the mountains. I love being outside and enjoying the
-                  beauty
-                  of the mountains.
+              </header>
 
-                  My love for photography started when I was very young. My mother worked for Mountain Photo
-                  and
-                  when I was six, I would go with her at night and help to develop all the film from the days
-                  shooting. That was my first taste for photography and I fell in love with it right away. As
-                  a
-                  teenager my mom worked at Anderson Ranch Art Center. During summer break I would go with my
-                  mom
-                  to work and hang out in the photography building. It was not until high school that I
-                  realized
-                  photography is what I wanted to do for a career, and I am now living that dream!
-
-                  Contact me for prints or a quote on any photography needs you may have.
-                </p>
-              </div>
-
-            </div>
-            <div id="photoPortfolio">
-              <div className="card">
-
-                <h1>portfolio Section </h1>
+              <section id="work" className="scroll-to">
+                <header>
+                  <h3>Recent work</h3>
+                </header>
                 <div className="portfolioImgs">
 
                   <a
@@ -313,41 +270,116 @@ function LandingScreen(props) {
 
                 </div>
 
-              </div>
-            </div>
+              </section>
 
-            {/* <div id="photoStore">
-              <div className="card">
-                <h1>Store</h1>
+              <section id="shop" className="scroll-to">
+                <header>
+                  <h3>Shop</h3>
+                </header>
 
-                {loading ? <LoadingBox /> : error ? <ErrorBox message={error} />
-                  : products.length === 0 ? (
-                    <div className="empty-list">
-                      There is no products.
-                    </div>
-                  )
-                    : (
-                      <ul className="products">
-                        {products.map((product) => (
-                          <Product key={product._id} {...product} />
-                        ))}
-                      </ul>
-                    )}
+                <img src="images/comingSoon.png" />
+              </section>
 
-              </div>
-            </div> */}
+              <section id="about" className="scroll-to">
+                <header>
+                  <h3>About Me</h3>
+                </header>
 
-            <div id="photoContact">
-              <div className="card">
-                <h1>Contact Section </h1>
-              </div>
-            </div>
+                <section className="about-content">
+                  <p>
+                    <span id="lead">Hello. My name is Zach Maraziti, owner of ZMPD.</span>
+                    {' '}
+                    My love of photography began at
+                    an early age while watching my Mother shoot and develop her own film. Some of my early childhood
+                    experiences include working alongside her on the development process and learning how to compose photos
+                    through observation of her work.
+                  </p>
+
+                  <p>
+                    {' '}
+                    As a teenager, I would spend most of my summers at the Anderson Ranch Arts Center. My mother worked at
+                    the Ranch and while she ran art classes and workshops, I would venture to the photography building.
+                    Through those experiences, I was fortunate enough to learn from the artists creating in the studio and
+                    be exposed to unique styles of photography.
+                    {' '}
+                  </p>
+
+                  <p>
+                    Shooting photos has always been one of my biggest passions in life, and it is obvious to me that this
+                    began with the exposure I had to art and photography at an early age. I am grateful not only for those
+                    memories and experiences but to be able to carry that passion into my career. Projects I’ve worked on
+                    range from photographing and videoing skiing in Japan for Polartec to shooting a statue of a bear at the
+                    Marron Bells for the Buddy Program to Xgames photos for the ESPN. While my main focus is shooting
+                    landscapes, I am always open to new opportunities. If you have an idea in mind, please feel free to
+                    reach out to me via email and we’ll begin a conversation about your vision.
+                  </p>
+
+                </section>
+              </section>
+
+              <section id="location" className="scroll-to">
+                <header>
+                  <h3>Contact Info</h3>
+                </header>
+                <div className="contact-info myrow-halves">
+                  <div className="col">
+                    <i className="fa fa-mobile fa-3x" aria-hidden="true" />
+                    <p>Mobile | 970.452.9404</p>
+                  </div>
+                  <div className="col">
+                    <i className="fa fa-envelope fa-3x" aria-hidden="true" />
+                    <p>E-mail | zach@zmpd.app</p>
+                  </div>
+                </div>
+
+              </section>
+
+              <section id="contact" className="scroll-to">
+                <header>
+                  <h5>Or, feel free to drop me a line below</h5>
+                </header>
+
+                <form className="col" method="post" name="myemailform" action="email.php">
+                  <fieldset>
+                    <legend htmlFor="name">Name</legend>
+                    <input type="text" id="name" name="name" />
+                    <legend htmlFor="mail">E-mail</legend>
+                    <input type="text" id="email" name="email" />
+                    <legend htmlFor="msg">Message</legend>
+                    <textarea id="msg" name="message" />
+
+                    <input type="submit" name="submit" value="Send" className="link-btn-solid" />
+                  </fieldset>
+                </form>
+
+                <script language="JavaScript">
+                  // Code for validating the form
+                  // Visit http://www.javascript-coder.com/html-form/javascript-form-validation.phtml
+                  // for details
+                  var frmvalidator = new Validator("myemailform");
+                  frmvalidator.addValidation("name", "req", "Please provide your name");
+                  frmvalidator.addValidation("email", "req", "Please provide your email");
+                  frmvalidator.addValidation("email", "email", "Please enter a valid email address");
+                </script>
+              </section>
+
+              <footer>
+
+                <div className="myrow">
+                  <div className="col">
+                    Copy &copy ZMPD 2019
+                  </div>
+                </div>
+
+              </footer>
+
+            </main>
 
           </div>
-
         </div>
-      </div>
 
+      </div>
+      {/* <!--dev side content--> */}
       <div id="dev-overlay" className="overlay">
         <div className="wrapper">
           <div className="sidebar">
@@ -357,14 +389,24 @@ function LandingScreen(props) {
               <i className="icon fa fa-bars" />
             </div>
             <ul className="nav">
+              {/* <!-- <li className="nav-li">
+                          <a href="#homeDev" className="active">Intro</a>
+                      </li> --> */}
+
               <li className="nav-li">
-                <a href="#devAbout" className="active">About</a>
+                <a href="#workDev" className="">portfolio</a>
               </li>
               <li className="nav-li">
-                <a href="#devPortfolio" className="">portfolio</a>
+                <a href="#aboutDev" className="">About</a>
               </li>
               <li className="nav-li">
-                <a href="#devContact" className="">Contact</a>
+                <a href="#devTech" className="">Technology</a>
+              </li>
+              <li className="nav-li">
+                <a href="#locationDev" className="">Contact</a>
+              </li>
+              <li className="nav-li">
+                <a href="#" className="close-icon">Home</a>
               </li>
 
             </ul>
@@ -377,189 +419,270 @@ function LandingScreen(props) {
           </div>
           <div className="content">
 
-            <div id="devAbout">
-              <div className="card">
-                <h1 style={{ marginTop: 0 }}>ABOUT Section </h1>
-                <p>
-                  {' '}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquet, magna in
-                  iaculis consequat, eros ex viverra magna, a viverra orci massa tempor nibh. Sed a consequat
-                  lectus. Fusce in aliquet augue, quis lobortis magna. Aenean varius aliquet magna in
-                  bibendum. Integer sagittis nulla quis arcu facilisis molestie. Sed placerat luctus leo, sit
-                  amet scelerisque nibh posuere sed. Integer luctus consectetur urna. Donec quis lobortis
-                  tortor. Fusce eget dapibus arcu.
-
-                  Duis varius aliquet quam, non pulvinar nisl sollicitudin sit amet. In feugiat dignissim
-                  dapibus. Duis aliquet, erat vel convallis euismod, nisl tellus efficitur nisi, et tristique
-                  sapien massa a ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada
-                  fames ac turpis egestas. Donec dapibus porttitor dignissim. Fusce quam odio, efficitur quis
-                  quam interdum, aliquam vestibulum dui. Nulla facilisi. Pellentesque vel bibendum tellus.
-                  Proin tincidunt ac ipsum sed commodo. Etiam finibus molestie risus id lobortis. Morbi quis
-                  mauris vel justo imperdiet volutpat quis facilisis urna. Phasellus id augue faucibus,
-                  ultrices nibh eget, convallis orci.
-                </p>
-              </div>
-            </div>
-
-            <div id="devPortfolio">
-
-              <div className="card">
-                <h1>portfolio Section </h1>
-
-                <section className="gallery">
-                  <div className="row">
-                    <ul>
-                      <a href="#" className="close" />
-                      <li>
-                        <a href="#item01">
-                          <img src="images/WileyMaple.png" alt="" />
-                        </a>
-                      </li>
-
-                      <li>
-                        <a href="#item02">
-                          <img src="images/aspenDailyNews.png" alt="" />
-                        </a>
-                      </li>
-
-                      <li>
-                        <a href="#item03">
-                          <img src="images/BobbyMoyer.png" alt="" />
-                        </a>
-                      </li>
-                      <li>
-                        <a className="image" href="#item04">
-                          <img src="images/brit.png" alt="" />
-                        </a>
-                      </li>
-
-                    </ul>
-                  </div>
-
-                  <div id="item01" className="port">
-
-                    <div className="row">
-                    <img src="images/WileyMaple.png" alt="" />
-                      <div className="description">
-                        <h1>Wiley Maple</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
-                      </div>
-
-                     
-                    </div>
-                  </div>
-
-                  <div id="item02" className="port">
-
-                    <div className="row">
-                      <div className="description">
-                        <h1>Aspen Daily News</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
-                      </div>
-                      <img src="images/aspenDailyNews.png" alt="" />
-                    </div>
-
-                  </div>
-
-                  <div id="item03" className="port">
-
-                    <div className="row">
-                      <div className="description">
-                        <h1>Bobby Moyer</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
-                      </div>
-                      <img src="images/BobbyMoyer.png" alt="" />
-                    </div>
-
-                  </div>
-
-                  <div id="item04" className="port">
-
-                    <div className="row">
-                      <div className="description">
-                        <h1>Real Estate Agent</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
-                      </div>
-                      <img src="images/brit.png" alt="" />
-                    </div>
-
-                  </div>
-
-                </section>
-
-              </div>
-            </div>
-
-            <div id="devContact">
-              <div className="card">
-                <h1>Contact Section </h1>
-
-                <div id="contact-area">
-
-                  <form method="post" action="contactengine.php">
-
-                    <input type="text" name="Name" id="Name" placeholder="Full Name" />
-
-                    <input type="text" name="City" id="City" placeholder="City" />
-
-                    <input type="text" name="Email" id="Email" placeholder="Email" />
-
-                    <input type="text" name="Phone" id="Phone" placeholder="Phone" />
-
-                    <textarea
-                      name="Message"
-                      rows="20"
-                      cols="20"
-                      id="Message"
-                      placeholder="Message"
-                    />
-
-                    <input type="submit" name="submit" value="Submit" className="submit-button" />
-                  </form>
+            <main>
+              <header className="section-1" id="homeDev">
+                <div className="title-header">
+                  <h1>Zach Maraziti</h1>
+                  <h2>Full Stack Developer</h2>
                 </div>
 
-              </div>
-            </div>
+              </header>
+
+              <section id="workDev" className="scroll-to">
+                <header>
+                  <h3>Recent work</h3>
+                </header>
+
+                <div className="row">
+                  <section className="gallery">
+                    <div className="row">
+                      <ul>
+                        <a href="#" className="close" />
+                        <li>
+                          <a href="#item01">
+                            <img src="images/WileyMaple.png" alt="" />
+                          </a>
+                        </li>
+
+                        <li>
+                          <a href="#item02">
+                            <img src="images/aspenDailyNews.png" alt="" />
+                          </a>
+                        </li>
+
+                        <li>
+                          <a href="#item03">
+                            <img src="images/BobbyMoyer.png" alt="" />
+                          </a>
+                        </li>
+                        <li>
+                          <a className="image" href="#item04">
+                            <img src="images/liftOne.png" alt="" />
+                          </a>
+                        </li>
+                        {/* <li>
+                      <a className="image" href="#item05">
+                        <img src="images/brit.png" alt="" />
+                      </a>
+                    </li> */}
+
+                      </ul>
+                    </div>
+
+                    <div id="item01" className="port">
+
+                      <div className="row">
+                        <img src="images/WileyMaple.png" alt="" />
+                        <div className="description">
+                          <h1>Wiley Maple</h1>
+                          <p>Full stack responsive web app built for Olympic skiier. Built with React, NodeJS, Express, MongoDB.</p>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div id="item02" className="port">
+
+                      <div className="row">
+                        <img src="images/aspenDailyNews.png" alt="" />
+                        <div className="description">
+                          <h1>Aspen Daily News</h1>
+                          <p>Custom CSS, backend data migration, hosting transfer CMS training and implamentiation, consultant, leasion. </p>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <div id="item03" className="port">
+
+                      <div className="row">
+                        <img src="images/BobbyMoyer.png" alt="" />
+                        <div className="description">
+                          <h1>Bobby Moyer</h1>
+                          <p>Full stack web app built for an Author. Built with React, NodeJS, Express, MongoDB.</p>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <div id="item04" className="port">
+
+                      <div className="row">
+                        <img src="images/liftOne.png" alt="" />
+                        <div className="description">
+                          <h1>Political Campaign</h1>
+                          <p>Full stack web app built for a Politcal Campaign. Built with Angular, NodeJS, Express, MongoDb, Handlebars.js</p>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    {/* <div id="item05" className="port">
+
+                      <div className="row">
+                        <div className="description">
+                      <h1>Political Campaign </h1>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
+                    </div>
+                        <img src="images/brit.png" alt="" />
+                      </div>
+
+                    </div> */}
+
+                  </section>
+
+                </div>
+              </section>
+
+              <section id="aboutDev" className="scroll-to about-content">
+                <header>
+                  <h3>About Me</h3>
+                </header>
+
+                <p>
+                  <span id="lead">Hello. My name is Zach Maraziti.</span>
+                  {' '}
+                  I am a Full Stack developer from Aspen, Colorado based out of Portland Oregon.
+                  I am passionate about building excellent software that improves the lives of those around me.
+                  I specialize in creating software for clients ranging from individuals and small-businesses.
+                  I've always been drawn to the overlap between design and development. My skills are broad: from
+                  photography to design, front end to back end development. I enjoy each aspect, and love building sites &
+                  mobile apps from start to finish.
+                  If you are intrested in working together, you can find my contact info below.
+                </p>
+                <br />
+              </section>
+
+              <section id="devTech">
+                <header>
+                  <h3>Tech I Love</h3>
+                </header>
+                <div className="row">
+
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-html5-plain-wordmark" /></h1>
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-css3-plain-wordmark" /></h1>
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-javascript-plain" /></h1>
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-nodejs-plain-wordmark" /></h1>
+
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-angularjs-plain" /></h1>
+
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-react-original-wordmark" /></h1>
+
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-jquery-plain-wordmark" /></h1>
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-gulp-plain" /></h1>
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-express-original-wordmark" /></h1>
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-mongodb-plain-wordmark" /></h1>
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-postgresql-plain-wordmark" /></h1>
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-typescript-plain" /></h1>
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-mocha-plain" /></h1>
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-sass-original" /></h1>
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-photoshop-line" /></h1>
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-github-plain-wordmark" /></h1>
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-wordpress-plain-wordmark" /></h1>
+                  </div>
+                  <div className="col s6 m2 l2">
+                    <h1><i className="devicon-bootstrap-plain-wordmark" /></h1>
+                  </div>
+                </div>
+              </section>
+
+              <section id="locationDev" className="scroll-to">
+                <header>
+                  <h3>Contact Info</h3>
+                </header>
+                <div className="contact-info myrow-halves">
+                  <div className="col">
+                    <i className="fa fa-mobile fa-3x" aria-hidden="true" />
+                    <p>Mobile | 970.452.0404</p>
+                  </div>
+                  <div className="col">
+                    <i className="fa fa-envelope fa-3x" aria-hidden="true" />
+                    <p>E-mail | zach@zmpd.app</p>
+                  </div>
+                </div>
+
+              </section>
+
+              <section id="contactDev" className="scroll-to">
+                <header>
+                  <h5>Or, feel free to drop me a line below</h5>
+                </header>
+
+                <form className="col" method="post" name="myemailform" action="email.php">
+                  <fieldset>
+                    <legend htmlFor="name">Name</legend>
+                    <input type="text" id="name" name="name" />
+                    <legend htmlFor="mail">E-mail</legend>
+                    <input type="text" id="email" name="email" />
+                    <legend htmlFor="msg">Message</legend>
+                    <textarea id="msg" name="message" />
+
+                    <input type="submit" name="submit" value="Send" className="link-btn-solid" />
+                  </fieldset>
+                </form>
+
+                <script language="JavaScript">
+                  // Code for validating the form
+                  // Visit http://www.javascript-coder.com/html-form/javascript-form-validation.phtml
+                  // for details
+                  var frmvalidator = new Validator("myemailform");
+                  frmvalidator.addValidation("name", "req", "Please provide your name");
+                  frmvalidator.addValidation("email", "req", "Please provide your email");
+                  frmvalidator.addValidation("email", "email", "Please enter a valid email address");
+                </script>
+              </section>
+
+              <footer>
+
+                <div className="myrow">
+                  <div className="col">
+                    Copy &copy ZMPD 2019
+                  </div>
+                </div>
+
+              </footer>
+
+            </main>
 
           </div>
         </div>
 
-      </div>
-
-      <div id="photo-single" className="overlay">
-        <div className="grid">
-          <div className="column">
-            <div className="portfolio-content">
-              <h1> Photo </h1>
-              <h1> YAY </h1>
-              <h1> YAY </h1>
-              <h1> YAY </h1>
-              <h1> YAY </h1>
-            </div>
-          </div>
-        </div>
-        <div className="close-icon">
-          <div />
-          <div />
-        </div>
-      </div>
-
-      <div id="dev-single" className="overlay">
-        <div className="grid">
-          <div className="column">
-            <div className="portfolio-content">
-              <h1> DEV </h1>
-              <h1> YAY yy</h1>
-              <h1> YAY yy</h1>
-              <h1> YAY </h1>
-              <h1> YAY </h1>
-            </div>
-          </div>
-        </div>
-        <div className="close-icon">
-          <div />
-          <div />
-        </div>
       </div>
     </>
   );
